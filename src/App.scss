@@ -1,0 +1,194 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Staatliches&display=swap');
+
+// Typography
+h1 {
+  font-family: 'Staatliches';
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+// Buttons
+button {
+  outline: none;
+  border: 0;
+  background: #358b91;
+  color: white;
+  font-size: 1rem;
+  padding: 6px 18px;
+  border-radius: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.icon-btn {
+  padding: 8px 10px;
+  border-radius: 50%;
+
+  i {
+    width: 15px;
+  }
+}
+
+// Hangman Game App Components
+.App {
+  background-color: #0B132B;
+  min-height: 100vh;
+  color: white;
+
+  // Game page
+  .game {
+    .game-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 20px 12px 20px;
+    }
+
+    .game-window {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      p {
+        margin: 0 0 8px 0;
+      }
+
+      .hangman-character {
+        background-color: #171f35;
+        height: calc(100vh - 491.6px);
+        width: 400px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border-radius: 4px;
+
+        img {
+          height: calc(100vh - 491.6px);
+        }
+      }
+
+      // For short height windows fix hangman character size
+      @media screen and (max-height: 700px) {
+        .hangman-character {
+          height: 212px;
+
+          img {
+            height: 212px;
+          }
+        }
+      }
+
+      .word-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .letter {
+          font-family: 'Courier Prime';
+          font-size: 4rem;
+          letter-spacing: 8px;
+          color: white;
+        }
+
+        .letter.hidden::after {
+          width: 80%;
+          content: '';
+          background: white;
+          height: 4px;
+          display: block;
+        }
+
+        .hidden {
+          color: #0B132B;
+        }
+
+        .letter::after {
+          width: 0;
+        }
+      }
+    }
+  }
+
+  // Keypad
+  .keypad {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+
+    .key {
+      font-size: 2rem;
+      display: inline-block;
+      padding: 18px 22px 16px 22px;
+      margin: 4px;
+      background-color: #8d8494;
+      font-family: 'Courier Prime';
+      border-radius: 4px;
+    }
+
+    .key:hover {
+      cursor: pointer;
+      background-color: #857C8D;
+    }
+
+    .key:disabled {
+      background-color: #171f35;
+    }
+
+    .key:disabled:hover {
+      background-color: #171f35;
+      cursor: text;
+    }
+  }
+
+  // Result pages
+  .result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+    }
+  }
+
+  // Help page
+  .help {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+
+    .help-container {
+      padding: 10px;
+      border-radius: 15px;
+      width: 75vw;
+      min-height: calc(100% - 100px);
+      max-height: calc(100% - 100px);
+      background-color: #171f35;
+      opacity: 100%;
+      margin: 40px auto;
+
+      .help-content {
+        padding: 30px;
+
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .help.hidden {
+    visibility: hidden;
+  }
+}
