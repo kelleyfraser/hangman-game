@@ -19,7 +19,7 @@ function GameWindow(props) {
         </div>
       </div>
       <div className="word-container">
-        {wordArr.map(letter => <Letter guessed={props.guessed} letter={letter} id={id++} />)}
+        {wordArr.map(letter => <Letter key={id++} guessed={props.guessed} letter={letter} />)}
       </div>
     </div>
   );
